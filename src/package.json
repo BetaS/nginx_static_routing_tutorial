@@ -1,0 +1,26 @@
+{
+  "name": "nginx_static_route_tutorial",
+  "version": "1.0.0",
+  "description": "Static routing tutorial for NGINX",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetaS/nginx_static_route.git"
+  },
+  "author": "betas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetaS/nginx_static_route/issues"
+  },
+  "homepage": "https://github.com/BetaS/nginx_static_route#readme",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-string-replace": "^1.3.1",
+    "pug": "^2.0.3"
+  }
+}

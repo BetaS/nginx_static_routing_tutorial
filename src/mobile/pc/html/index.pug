@@ -1,0 +1,19 @@
+-
+    function get_lang(name) {
+        console.log(_lang_data);
+        return _lang_data[name][_lang];
+    }
+
+html
+    head
+        title= get_lang("hello_world")
+        style(href='/css/index.css')
+        script(src='/js/index.js')
+    body
+        h1 NGINX Static Router Example
+        hr
+        h2= get_lang("hello_world")
+        div
+            img(src='/image/index.png')
+            button(onclick='onload();')
+                |  Click!
