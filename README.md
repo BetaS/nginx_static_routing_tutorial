@@ -46,7 +46,7 @@ Static file (html, css, js) router example for NGINX
               index.en.html
               index.jp.html
               ....
-              404.html
+     404.html
 ```
 본 환경을 위해셔 "pug.js"를 통해 pug로 작성된 파일을 각각의 language로 컴파일 하여 적용하였고,
 이를 다음과 같은 URL로 접근하고자 하였습니다.
@@ -55,7 +55,7 @@ Static file (html, css, js) router example for NGINX
 ```
 http://ko.abc.xyz/       ------->      /www/pc/index.ko.html
 
-http://ko.abc.xyz/m/     ------->      /www/m/index.ko.html
+http://ko.abc.xyz/m/     ------->      /www/mobile/index.ko.html
 ```
 
 ### Language Routing
@@ -89,7 +89,11 @@ http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 
 `/var/www/html/`
 
-이곳을 HTML ROOT로 정의하고, 본 repository의 /www/안의 내용을 모두 복사해서 옮겨둡니다.
+이곳을 HTML ROOT로 정의하고, 본 repository의 /www/안의 내용을 모두 복사해서 다음의 경로로 옮겨둡니다.
+
+`/var/www/example/`
+
+이동이 완료되었다면 `example`폴더 안에 `mobile`, `pc` 두개의 폴더만 위치하여야 합니다.
 
 ## 2.
 To be continue...
