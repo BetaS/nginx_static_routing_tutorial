@@ -1,4 +1,4 @@
-# nginx_static_router
+# NGINX Static router turorial
 Static file (html, css, js) router example for NGINX
 
 # Introduction
@@ -73,8 +73,20 @@ http://abc.xyz/jp/    ------->      /www/pc/index.jp.html
 2. DNS레벨의 Load-balancing을 수행하거나, Proxy를 통한 Load-balancing을 수행하는데에 지장이 없어야 합니다.
 3. restful한 URL규칙을 지켜야 하며, GET / POST Parameter의 사용을 최소화 하여야 합니다.
 4. 허용되지 않은 접근이라면 404 Not Found Error를 정확하게 띄워야 합니다.
+5. ubuntu 16.04 환경에서 동작합니다.
 
 
 # Implementing
 
+## 1. NGINX 설치
+
+`sudo apt-get install nginx`
+
+설치가 완료되면, 다음과 같은 경로에 html root가 생성됩니다.
+
+`/var/www/html/`
+
+이곳을 HTML ROOT로 정의하고, 본 repository의 /www/안의 내용을 모두 복사해서 옮겨둡니다.
+
+## 2. 
 To be continue...
