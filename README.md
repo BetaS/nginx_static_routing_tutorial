@@ -54,14 +54,14 @@ Static file (html, css, js) router example for NGINX
 본 환경을 위해셔 "pug.js"를 통해 pug로 작성된 파일을 각각의 language로 컴파일 하여 적용하였고,
 이를 다음과 같은 URL로 접근하고자 하였습니다.
 
-### Mobile, PC Routing
+### Mobile, PC Routing Example
 ```
 http://ko.abc.xyz/       ------->      /www/pc/index.ko.html
 
 http://ko.abc.xyz/m/     ------->      /www/mobile/index.ko.html
 ```
 
-### Language Routing
+### Language Routing Example
 ```
 http://abc.xyz/          ------->      /www/pc/index.ko.html
 http://www.abc.xyz/      ------->      /www/pc/index.ko.html
@@ -72,6 +72,17 @@ http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 
 또한 허용되지 않은 URL 규칙을 이용한다면 404.html을 호출하고자 하였습니다.
 
+
+# Build (생략 가능)
+
+만약 전체적인 파일 빌드 프로세스가 궁금하다면, 본 repository의 `/src/`경로를 참고해주시기 바랍니다.
+
+1. 해당 경로에서 다음 명령어를 입력
+`$ npm install --production`
+2. grunt 빌드를 수행
+`$ grunt dev`
+3. 최종 결과 확인
+`$ cd ../www/`
 
 # Requirements
 
