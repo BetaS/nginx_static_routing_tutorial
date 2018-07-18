@@ -1,3 +1,3 @@
 function onload() {
-    alert("你好!");
+    alert("It's PC!!! 你好!");
 }

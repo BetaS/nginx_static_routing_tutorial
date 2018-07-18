@@ -1,3 +1,3 @@
 function onload() {
-    alert("Hello!");
+    alert("It's PC!!! Hello!");
 }

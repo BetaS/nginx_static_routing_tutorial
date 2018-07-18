@@ -1,3 +1,3 @@
 function onload() {
-    alert("안녕하세요!");
+    alert("It's PC!!! 안녕하세요!");
 }

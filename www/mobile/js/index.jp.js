@@ -1,3 +1,3 @@
 function onload() {
-    alert("こんにちは。");
+    alert("It's Mobile!!! こんにちは。");
 }

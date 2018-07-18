@@ -1,3 +1,3 @@
 function onload() {
-    alert("_{hello_world}");
+    alert("It's Mobile!!! _{hello_world}");
 }
