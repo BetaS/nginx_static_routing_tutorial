@@ -4,10 +4,12 @@ Static file (html, css, js) router example for NGINX
 # Introduction
 
 이 자료는 NGINX를 이용하여 static 파일을 제공할때 re-routing을 통하여
+
 1. 확장자를 숨김으로써 보안성 증가
 2. 파일구조는 그대로 두고 **Semantic URL**을 지원
 3. **Semantic URL** 을 통한 검색엔진 최적화 (SEO)
-하기 위하여 작성된 자료입니다.
+
+를 위하여 작성된 자료입니다.
 
 # Background
 
