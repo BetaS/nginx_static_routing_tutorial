@@ -51,17 +51,18 @@ Static file (html, css, js) router example for NGINX
 
 ### Mobile, PC Routing
 ```
-http://abc.xyz/       ------->      /www/pc/index.ko.html
+http://ko.abc.xyz/       ------->      /www/pc/index.ko.html
 
-http://m.abc.xyz/     ------->      /www/m/index.ko.html
+http://ko.abc.xyz/m/     ------->      /www/m/index.ko.html
 ```
 
 ### Language Routing
 ```
-http://abc.xyz/       ------->      /www/pc/index.ko.html
-http://abc.xyz/ko/    ------->      /www/pc/index.ko.html
-http://abc.xyz/en/    ------->      /www/pc/index.en.html
-http://abc.xyz/jp/    ------->      /www/pc/index.jp.html
+http://abc.xyz/          ------->      /www/pc/index.ko.html
+http://www.abc.xyz/      ------->      /www/pc/index.ko.html
+http://ko.abc.xyz/       ------->      /www/pc/index.ko.html
+http://en.abc.xyz/       ------->      /www/pc/index.en.html
+http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 ```
 
 또한 허용되지 않은 URL 규칙을 이용한다면 404.html을 호출하고자 하였습니다.
@@ -74,7 +75,7 @@ http://abc.xyz/jp/    ------->      /www/pc/index.jp.html
 3. restful한 URL규칙을 지켜야 하며, GET / POST Parameter의 사용을 최소화 하여야 합니다.
 4. 허용되지 않은 접근이라면 404 Not Found Error를 정확하게 띄워야 합니다.
 5. ubuntu 16.04 환경에서 동작합니다.
-
+6. 본 예제에서의 default language는 **ko** 입니다.
 
 # Implementing
 
