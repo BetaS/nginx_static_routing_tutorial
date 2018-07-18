@@ -19,32 +19,34 @@ Static file (html, css, js) router example for NGINX
               index.css
           js/
               lib.js
-              index.js 
+              index.js
           res/
               image/
                   ...
               video/
                   ...
-          index.ko.html
-          index.en.html
-          index.jp.html
-          ....
+          html/
+              index.ko.html
+              index.en.html
+              index.jp.html
+              ....
      mobile/
           css/
               index.css
           js/
               lib.js
-              index.js 
+              index.js
           res/
               image/
                   ...
               video/
                   ...
-          index.ko.html
-          index.en.html
-          index.jp.html
-          ....
-          404.html
+          html/
+              index.ko.html
+              index.en.html
+              index.jp.html
+              ....
+              404.html
 ```
 본 환경을 위해셔 "pug.js"를 통해 pug로 작성된 파일을 각각의 language로 컴파일 하여 적용하였고,
 이를 다음과 같은 URL로 접근하고자 하였습니다.
@@ -89,5 +91,5 @@ http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 
 이곳을 HTML ROOT로 정의하고, 본 repository의 /www/안의 내용을 모두 복사해서 옮겨둡니다.
 
-## 2. 
+## 2.
 To be continue...
