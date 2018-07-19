@@ -4,9 +4,12 @@ Static file (html, css, js) router example for NGINX
 # Introduction
 
 이 자료는 NGINX를 이용하여 static 파일을 제공할때 re-routing을 통하여
+
 1. 확장자를 숨김으로써 보안성 증가
-2. 파일구조는 그대로 두고 restFUL한 url을 지원
-하기 위하여 작성된 자료입니다.
+2. 파일구조는 그대로 두고 **Semantic URL**을 지원
+3. **Semantic URL** 을 통한 검색엔진 최적화 (SEO)
+
+를 위하여 작성된 자료입니다.
 
 # Background
 
@@ -46,19 +49,19 @@ Static file (html, css, js) router example for NGINX
               index.en.html
               index.jp.html
               ....
-              404.html
+     404.html
 ```
 본 환경을 위해셔 "pug.js"를 통해 pug로 작성된 파일을 각각의 language로 컴파일 하여 적용하였고,
 이를 다음과 같은 URL로 접근하고자 하였습니다.
 
-### Mobile, PC Routing
+### Mobile, PC Routing Example
 ```
 http://ko.abc.xyz/       ------->      /www/pc/index.ko.html
 
-http://ko.abc.xyz/m/     ------->      /www/m/index.ko.html
+http://ko.abc.xyz/m/     ------->      /www/mobile/index.ko.html
 ```
 
-### Language Routing
+### Language Routing Example
 ```
 http://abc.xyz/          ------->      /www/pc/index.ko.html
 http://www.abc.xyz/      ------->      /www/pc/index.ko.html
@@ -69,6 +72,17 @@ http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 
 또한 허용되지 않은 URL 규칙을 이용한다면 404.html을 호출하고자 하였습니다.
 
+
+# Build (생략 가능)
+
+만약 전체적인 파일 빌드 프로세스가 궁금하다면, 본 repository의 `/src/`경로를 참고해주시기 바랍니다.
+
+1. 해당 경로에서 다음 명령어를 입력
+`$ npm install --production`
+2. grunt 빌드를 수행
+`$ grunt dev`
+3. 최종 결과 확인
+`$ cd ../www/`
 
 # Requirements
 
@@ -89,7 +103,36 @@ http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 
 `/var/www/html/`
 
-이곳을 HTML ROOT로 정의하고, 본 repository의 /www/안의 내용을 모두 복사해서 옮겨둡니다.
+이곳을 HTML ROOT로 정의하고, 본 repository의 /www/안의 내용을 모두 복사해서 다음의 경로로 옮겨둡니다.
 
-## 2.
+`/var/www/example/`
+
+이동이 완료되었다면 `example`폴더 안에 `mobile`, `pc` 두개의 폴더만 위치하여야 합니다.
+
+## 2. Domain 설정
+
+*이미 개인 도메인이 있다면 생략 가능함*
+
+일반 ip주소를 통해서는 redirect가 안되기 때문에, 테스트를 위해서 직접 테스트용 도메인(*abc.xyz*)을 바인딩 해줄 필요가 있습니다.
+따라서 다음과 같은 명령어를 통해 linux host파일을 열어줍니다.
+
+`$ sudo vi /etc/hosts`
+
+아래 내용을 파일의 맨 아래에 추가해줍니다.
+```
+127.0.0.1       abc.xyz
+127.0.0.1       ko.abc.xyz
+127.0.0.1       en.abc.xyz
+127.0.0.1       jp.abc.xyz
+127.0.0.1       zh.abc.xyz
+```
+
+저장 이후 웹 브라우저를 열어 해당 도메인들에 한번씩 접속해봅니
+
+### 주의
+
+위 내용을 따라한 경우에는 모든 tutorial이 끝나고 해당 파일의 추가된 내용을 **꼭** 지워줘야 합니다.
+
+## 3.
+
 To be continue...
