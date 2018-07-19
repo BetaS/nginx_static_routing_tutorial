@@ -3,14 +3,14 @@ include ../../lang.pug
 html
     head
         title= get_lang("hello_world")
-        style(href='/css/index.css')
-        script(src='/js/index.js')
+        style(href='./css/index.css')
+        script(src='./js/index.'+_lang+'.js')
     body
         h1 NGINX Static Router Example
         span It's mobile version!!!
         hr
         h2= get_lang("hello_world")
         div
-            img(src='/image/index.png')
+            img(src='./image/index.png')
             button(onclick='onload();')
                 |  Click!
