@@ -1,0 +1,41 @@
+server {
+    listen 80;
+    root /var/www/example/;
+
+    server_name abc.xyz www.abc.xyz;
+
+    access_log /var/log/nginx/abc.xyz/access.log;
+    error_log /var/log/nginx/abc.xyz/error.log warn;
+
+    # pc index redirect
+    location / {
+    	access_log off;
+        return 301 /ko/index;
+    }
+    location ~* ^/(ko|en|jp|zh)(/|)$ {
+    	access_log off;
+        return 301 /$1/index;
+    }
+    location ~* ^/(ko|en|jp|zh)/.*$ {
+        rewrite ^/(ko|en|jp|zh)/(.*?)(/.*|)$ /pc/html/$2.$1.html?q=$3 break;
+        error_page 404 =200 /$1/404;
+        break;
+    }
+    location ~* ^/(js|css|image)/.*$ {
+        rewrite ^/(js|css|image)/(.*)$ /pc/$1/$2 break;
+        access_log off;
+        break;
+    }
+
+    location ~* ^/robots.txt$ {
+    	rewrite ^ /pc/robots.txt break;
+        access_log off;
+        break;
+    }
+
+    # Deny all for not accepted
+    location ~ /. {
+        access_log off;
+        return 404;
+    }
+}

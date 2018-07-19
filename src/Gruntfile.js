@@ -72,7 +72,13 @@ module.exports = function (grunt) {
         			src: "**/*",
         			dest: "../www/mobile/"
         		}]
-        	}
+        	},
+            conf: {
+                files: {
+                    '../www/pc/robots.txt': 'pc/robots.txt',
+                    '../www/mobile/robots.txt': 'mobile/robots.txt'
+                }
+            }
         }
     });
 
@@ -80,5 +86,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-pug');
 
-    grunt.registerTask('dev', ['pug', 'string-replace', 'copy:resource']);
+    grunt.registerTask('dev', ['pug', 'string-replace', 'copy']);
 };

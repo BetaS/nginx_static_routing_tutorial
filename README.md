@@ -121,18 +121,63 @@ http://jp.abc.xyz/       ------->      /www/pc/index.jp.html
 아래 내용을 파일의 맨 아래에 추가해줍니다.
 ```
 127.0.0.1       abc.xyz
-127.0.0.1       ko.abc.xyz
-127.0.0.1       en.abc.xyz
-127.0.0.1       jp.abc.xyz
-127.0.0.1       zh.abc.xyz
+127.0.0.1       www.abc.xyz
+127.0.0.1       m.abc.xyz
 ```
 
-저장 이후 웹 브라우저를 열어 해당 도메인들에 한번씩 접속해봅니
+저장 이후 웹 브라우저를 열어 해당 도메인들에 한번씩 접속해봅니다.
 
 ### 주의
 
 위 내용을 따라한 경우에는 모든 tutorial이 끝나고 해당 파일의 추가된 내용을 **꼭** 지워줘야 합니다.
 
-## 3.
+## 3. Site configuration 추가
 
-To be continue...
+적절한 문법을 통해 site configuration을 등록해준다.
+
+본 tutorial에서는 이미 작성된 `abc.xyz`파일을 사용한다.
+
+### 3-1. Configure 등록
+
+nginx가 설치 된 폴더 (일반적으로 `/etc/nginx/`)의 `site-enabled` 폴더에 본 소스코드파일의 설정파일들을 다음과 같은 명령으로 복사하여 삽입한다.
+
+```
+$ sudo cp conf/abc.xyz /etc/nginx/site-enabled/abc.xyz
+$ sudo cp conf/m.abc.xyz /etc/nginx/site-enabled/m.abc.xyz
+```
+
+### 3-2. NGINX restart
+
+적용 완료 후 아래의 명령어를 통해 nginx를 재시작 한다.
+
+```
+$ sudo service nginx restart
+```
+
+## 4. rewrite Rule debugging setting
+
+통상적인 경우 아래의 과정이 필요 없으며, 오류가 발생할 경우에만 수행한다.
+
+### 4-1. rewrite log
+
+nginx.conf 파일 (일반적으로 `/etc/nginx/nginx.conf`)을 열어 `rewrite_log on;`을 아래와 같이 `html`블록에 추가한다.
+
+```
+html {
+    rewrite_log on;
+
+    ...
+}
+```
+
+### 4-2. error log 등록
+
+각 사이트의 등록 3번 항목에서 작성한 conf파일의 `error_log`를 찾아 맨 끝의 `error`를 `notice`로 아래와 같이 치환해준다.
+
+```
+server {
+    ...
+    error_log /var/log/nginx/abc.xyz.error.log notice;
+    ...
+}
+```

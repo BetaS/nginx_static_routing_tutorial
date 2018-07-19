@@ -3,6 +3,12 @@
         "ko": "안녕하세요!",
         "en": "Hello!",
         "jp": "こんにちは。",
-        "zh": "你好!"
+        "zh": "你好。"
+    },
+    "hello_error": {
+        "ko": "404 Not Found 입니다.",
+        "en": "It's 404 Not Found.",
+        "jp": "404 Not Found です。",
+        "zh": "404未找到。"
     }
 }
